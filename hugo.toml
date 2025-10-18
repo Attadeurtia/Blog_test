@@ -1,4 +1,4 @@
-baseURL = "https://blog.cactuserveur.fr"  # ou ton domaine personnalisé
+baseURL = "https://blog.cactuserveur.fr/"  # ou ton domaine personnalisé
 publishDir = "public"
 
 languageCode = 'fr-fr'
