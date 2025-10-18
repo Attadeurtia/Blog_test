@@ -4,24 +4,24 @@ publishDir = "public"
 languageCode = 'fr-fr'
 title = 'Mon blog alala'
 theme = "archie"
+copyright = "© Geoffrey"
+
+
+pagination.pagerSize=3 # articles per page
 
 
 
+# Social Tags
 
 [[params.social]]
 name = "GitHub"
 icon = "github"
-url = "https://github.com/athul/archie"
+url = "https://github.com/Attadeurtia"
 
 [[params.social]]
-name = "Twitter"
-icon = "twitter"
-url = "https://twitter.com/athulcajay/"
-
-[[params.social]]
-name = "GitLab"
-icon = "gitlab"
-url = "https://gitlab.com/athul/"
+name = "Mastodon"
+icon = "Mastodon"
+url = "https://social.vivaldi.net/@Attadeurtia"
 
 [[menu.main]]
 name = "Home"
