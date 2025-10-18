@@ -13,4 +13,6 @@ Dernièrement, c’est devoir changer d’habitat, changer à la fois de ville e
 {{</* figure src="mon-image.png" alt="Une belle image" caption="Ceci est une légende." */>}}
 
 ![Texte alternatif](/content/blog/mon-premier-article/mon-image.png)
+![Texte alternatif](/mon-image.png)
+
 ![Texte alternatif](/images/mon-image.png)
