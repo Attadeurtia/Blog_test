@@ -4,3 +4,16 @@ publishDir = "public"
 languageCode = 'fr-fr'
 title = 'Mon blog de test'
 theme = "archie"
+
+[permalinks]
+  tags = "/tags/:slug/"
+
+
+
+[build]
+  publishDir = "public"
+  # Pour GitHub Pages avec un dépôt projet (ex: Blog_test)
+  writeStats = true
+  # Désactive les URLs absolues en développement
+  [build.environment]
+    HUGO_ENV = "production"
