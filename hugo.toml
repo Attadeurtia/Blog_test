@@ -6,7 +6,7 @@ title = 'Mon blog de test'
 theme = "archie"
 
 [permalinks]
-  tags = "/tags/:/Blog_test/slug/"
+  tags = "/Blog_test/tags/:slug/"
 
 
 
