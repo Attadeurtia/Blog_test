@@ -5,21 +5,7 @@ languageCode = 'fr-fr'
 title = 'Mon blog de test'
 theme = "archie"
 
-[permalinks]
-  tags = "/Blog_test/tags/:slug/"
 
-
-
-[build]
-  publishDir = "public"
-  # Pour GitHub Pages avec un dépôt projet (ex: Blog_test)
-  writeStats = true
-  # Désactive les URLs absolues en développement
-  [build.environment]
-    HUGO_ENV = "production"
-
-[markup.goldmark.renderer]
-  unsafe = true  # Permet les liens relatifs
 
 
 [[params.social]]
