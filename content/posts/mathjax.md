@@ -1,6 +1,6 @@
 +++
 date = '2025-10-19T00:32:16+02:00'
-draft = true
+draft = false
 title = 'Mathjax'
 +++
 
