@@ -1,37 +1,31 @@
-name: Déployer le blog Hugo sur GitHub Pages
+name: Déploiement Hugo vers GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-
-  workflow_dispatch:
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+    branches:
+      - main  # ou la branche sur laquelle tu travailles
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Récupérer le code
+      - name: 🧰 Checkout du code
         uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: true  # si ton thème Hugo est un sous-module
+          fetch-depth: 0
 
-      - name: Installer Hugo
+      - name: ⚙️ Installation de Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "latest"
-          extended: true
+          hugo-version: 'latest'
 
-      - name: Construire le site
+      - name: 🏗️ Génération du site
         run: hugo --minify
 
-      - name: Déployer sur GitHub Pages
-        uses: actions/deploy-pages@v3
+      - name: 🚀 Déploiement sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
