@@ -1,5 +1,6 @@
-baseURL = "https://Attadeurtia.github.io/"  # ou un domaine personnalisé
-publishDir = "public"  # Dossier de sortie par défaut pour Hugo
+baseURL = "https://attadeurtia.github.io/Blog_test/"  # ou ton domaine personnalisé
+publishDir = "public"
+
 languageCode = 'fr-fr'
 title = 'Mon blog de test'
 theme = "archie"

@@ -2,18 +2,15 @@ name: Déployer le blog Hugo sur GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # Branche à surveiller
+    branches: ["main"]
 
-  # Permet de lancer manuellement l'action depuis l'onglet Actions
   workflow_dispatch:
 
-# Autorisations nécessaires
 permissions:
   contents: write
   pages: write
   id-token: write
 
-# Autorise une seule exécution à la fois
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -25,7 +22,7 @@ jobs:
       - name: Récupérer le code
         uses: actions/checkout@v4
         with:
-          submodules: true  # Pour récupérer les sous-modules (thèmes)
+          submodules: true
 
       - name: Installer Hugo
         uses: peaceiris/actions-hugo@v2
