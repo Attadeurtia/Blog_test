@@ -1,31 +1,52 @@
-name: Déploiement Hugo vers GitHub Pages
-
+name: Deploy Hugo site to Pages
 on:
   push:
-    branches:
-      - main  # ou la branche sur laquelle tu travailles
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true  # Annule les déploiements en cours si un nouveau push arrive
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: 🧰 Checkout du code
-        uses: actions/checkout@v4
-        with:
-          submodules: true  # si ton thème Hugo est un sous-module
-          fetch-depth: 0
-
-      - name: ⚙️ Installation de Hugo
+      - name: Install Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
+          extended: true  # Active si tu utilises SASS/SCSS (thème Archie l’utilise)
 
-      - name: 🏗️ Génération du site
-        run: hugo --minify
-
-      - name: 🚀 Déploiement sur GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages
+          submodules: recursive  # TRÈS IMPORTANT pour ton thème Archie
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+
+      - name: Build
+        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
