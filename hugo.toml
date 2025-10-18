@@ -1,4 +1,4 @@
-baseURL = "https://attadeurtia.github.io/"  # ou ton domaine personnalisé
+baseURL = "https://attadeurtia.github.io/Blog_test/"  # ou ton domaine personnalisé
 publishDir = "public"
 
 languageCode = 'fr-fr'
@@ -17,3 +17,6 @@ theme = "archie"
   # Désactive les URLs absolues en développement
   [build.environment]
     HUGO_ENV = "production"
+
+[markup.goldmark.renderer]
+  unsafe = true  # Permet les liens relatifs

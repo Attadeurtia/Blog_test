@@ -9,10 +9,6 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: true  # Annule les déploiements en cours si un nouveau push arrive
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,19 +17,15 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
-          extended: true  # Active si tu utilises SASS/SCSS (thème Archie l’utilise)
+          extended: true
 
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive  # TRÈS IMPORTANT pour ton thème Archie
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v4
+          submodules: recursive
 
       - name: Build
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}"
+        run: hugo --gc --minify --baseURL "https://attadeurtia.github.io/Blog_test/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
