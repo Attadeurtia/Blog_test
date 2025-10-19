@@ -2,7 +2,7 @@ baseURL = "https://blog.cactuserveur.fr/"  # ou ton domaine personnalisé
 publishDir = "public"
 
 languageCode = 'fr-fr'
-title = 'Mon blog alala'
+title = 'Geoffrey'
 theme = "archie"
 copyright = "© Geoffrey"
 
@@ -37,7 +37,7 @@ icon = "Mastodon"
 url = "https://social.vivaldi.net/@Attadeurtia"
 
 [[menu.main]]
-name = "Home"
+name = "Accueil"
 url = "/"
 weight = 1
 
@@ -47,7 +47,7 @@ url = "/posts"
 weight = 2
 
 [[menu.main]]
-name = "About"
+name = "À propos"
 url = "/about"
 weight = 3
 
