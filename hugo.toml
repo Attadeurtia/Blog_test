@@ -6,6 +6,7 @@ title = 'Geoffrey'
 theme = "archie"
 copyright = "© Geoffrey"
 
+relativeURLs = true
 
 pagination.pagerSize=3 # articles per page
 
