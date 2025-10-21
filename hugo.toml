@@ -38,22 +38,22 @@ url = "https://social.vivaldi.net/@Attadeurtia"
 
 [[menu.main]]
 name = "Accueil"
-url = "/"
+pageRef = "/"
 weight = 1
 
 [[menu.main]]
 name = "Tout les posts"
-url = "/posts"
+pageRef = "/posts"
 weight = 2
 
 [[menu.main]]
 name = "À propos"
-url = "/about"
+pageRef = "/about"
 weight = 3
 
 [[menu.main]]
 name = "Tags"
-url = "/tags"
+pageRef = "/tags"
 weight = 4
 
 
